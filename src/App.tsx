@@ -44,6 +44,7 @@ import {
 import { CONTENT } from './constants';
 
 const SLIDES = [
+  'slideIntroLogo',
   'hero',
   'slide3',
   'slide4',
@@ -71,6 +72,7 @@ export default function App() {
   const getStepsForSlide = (index: number) => {
     const slideId = SLIDES[index];
     switch (slideId) {
+      case 'slideIntroLogo': return 0;
       case 'hero': return 0;
       case 'slide2': return 3;
       case 'slide3': return 3;
@@ -165,7 +167,7 @@ export default function App() {
 
       {/* Floating Logo - Only on Hero */}
       <AnimatePresence>
-        {currentSlide === 0 && (
+        {SLIDES[currentSlide] === 'hero' && (
           <motion.div 
             initial={{ opacity: 0, scale: 0.8, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -247,6 +249,7 @@ export default function App() {
 
 function renderSlide(index: number, step: number) {
   switch (SLIDES[index]) {
+    case 'slideIntroLogo': return <SlideIntroLogo step={step} />;
     case 'hero': return <SlideHero step={step} />;
     case 'slide2': return <SlideProblem step={step} />;
     case 'slide3': return <SlideBuild step={step} />;
@@ -266,6 +269,19 @@ function renderSlide(index: number, step: number) {
 }
 
 /* ---------------- Slide Components ---------------- */
+
+const SlideIntroLogo = ({ step }: { step: number }) => (
+  <div className="presentation-slide flex items-center justify-center">
+    <motion.img
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      src="/intro-logo.png"
+      alt="90x90 Logo"
+      className="max-h-[86vh] max-w-[92vw] object-contain drop-shadow-sm"
+    />
+  </div>
+);
 
 const SlideHero = ({ step }: { step: number }) => {
   const descMatch = CONTENT.hero.description.match(/^(.*?)([A-Za-z].*)$/);
