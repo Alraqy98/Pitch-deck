@@ -235,12 +235,6 @@ export default function App() {
 
         <div className="flex flex-col items-end gap-2 pointer-events-auto">
            <span className="text-[10px] font-black tracking-widest text-slate-300 uppercase">Slide {currentSlide + 1} / {SLIDES.length}</span>
-           <button 
-            onClick={() => setCurrentSlide(0)}
-            className="text-[10px] font-black tracking-widest text-brand-orange uppercase hover:underline"
-           >
-             Return to Start
-           </button>
         </div>
       </footer>
     </div>
