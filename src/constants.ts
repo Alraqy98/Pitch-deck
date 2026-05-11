@@ -62,6 +62,30 @@ export const CONTENT = {
       { name: "و تخصيص تحليل الايرادات حسب طبيعة القطاع", eng: "(Industry-Based Business Lens™)" }
     ]
   },
+  slideGap: {
+    titleAr: "فجوة النمو",
+    titleEn: "The Growth Gap",
+    potential: {
+      titleAr: "الإمكانيات",
+      titleEn: "Potential",
+      value: "%100"
+    },
+    gap: {
+      label: "GAP",
+      titleAr: "الفجوة",
+      value: "%42"
+    },
+    actual: {
+      titleAr: "النتائج الفعلية",
+      titleEn: "Actual Results",
+      value: "%58"
+    },
+    drivers: [
+      "موارد غير مستغلة | Underutilized Resources",
+      "إيرادات غير مفعلة | Inactive Revenue Streams",
+      "ضعف في التنفيذ | Weak Execution"
+    ]
+  },
   slideTimeline: {
     title: "رحلة نقطة تحول",
     phases: [
