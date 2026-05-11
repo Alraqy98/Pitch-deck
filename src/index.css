@@ -100,6 +100,23 @@ body {
     print-color-adjust: exact;
   }
 
+  /*
+   * Chrome “Save as PDF” often paints box-shadows, backdrop-blur, filters, and running
+   * animations as black/dark rectangles. Strip them for this app when printing (#root).
+   */
+  #root,
+  #root *,
+  #root *::before,
+  #root *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
   .pdf-page {
     min-height: 100vh;
     padding: 12mm;
