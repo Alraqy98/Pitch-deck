@@ -265,7 +265,27 @@ body {
   }
 
   [data-pdf-slide="slide9"] .overflow-hidden.shadow-inner {
-    padding: 0.65rem !important;
+    padding: 0.5rem 0.6rem !important;
+  }
+
+  [data-pdf-slide="slide9"] .shadow-inner .grid.grid-cols-2 {
+    gap: 0.3rem !important;
+  }
+
+  [data-pdf-slide="slide9"] .shadow-inner h4 {
+    font-size: 0.62rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  [data-pdf-slide="slide9"] .border-t.border-slate-200 {
+    padding-top: 0.35rem !important;
+    margin-top: 0.25rem !important;
+  }
+
+  [data-pdf-slide="slide9"] .border-t.border-slate-200 .flex.flex-wrap > * {
+    font-size: 0.78rem !important;
+    line-height: 1.28 !important;
+    padding: 0.38rem 0.7rem !important;
   }
 
   /* Slide 10 (Partnership): tighten vertical rhythm so footer + banner fit */
@@ -306,13 +326,18 @@ body {
   }
 
   [data-pdf-slide="slide10"] .bg-green-600 {
-    padding: 0.65rem 0.85rem !important;
+    padding: 0.75rem 0.9rem !important;
+  }
+
+  [data-pdf-slide="slide10"] .bg-green-600 h4 {
+    font-size: 0.88rem !important;
+    line-height: 1.25 !important;
   }
 
   [data-pdf-slide="slide10"] .bg-green-600 .flex.flex-wrap > div {
-    font-size: 0.58rem !important;
-    line-height: 1.2 !important;
-    padding: 0.2rem 0.45rem !important;
+    font-size: 0.74rem !important;
+    line-height: 1.28 !important;
+    padding: 0.3rem 0.55rem !important;
   }
 
   [data-pdf-slide="slide10"] .text-center.p-2 p {
