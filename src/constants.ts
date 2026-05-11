@@ -9,7 +9,7 @@ export const CONTENT = {
     tagline: "بين الإمكانات ... والنتائج",
     description: "برنامج تنفيذي لتفعيل الأداء والنمو (Execution-Led Business Activation Framework)",
     consultant: "م. رائد أبوعيسى",
-    role: "مستشار الحوكمة التشغيلية وتفعيل الإيرادات",
+    role: "مستشار الحوكمة التشغيلية و نمو الاعمال",
     subrole: "(Operational Governance & Revenue Activation)"
   },
   slide2: {
