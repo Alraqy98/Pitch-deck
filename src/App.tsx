@@ -268,7 +268,9 @@ function renderSlide(index: number, step: number) {
 /* ---------------- Slide Components ---------------- */
 
 const SlideHero = ({ step }: { step: number }) => {
-  const [arabicDesc, englishDesc] = CONTENT.hero.description.split(' (');
+  const descMatch = CONTENT.hero.description.match(/^(.*?)([A-Za-z].*)$/);
+  const arabicDesc = descMatch?.[1]?.trim() ?? CONTENT.hero.description;
+  const englishDesc = descMatch?.[2]?.trim() ?? '';
   const [titleBlue, titleOrange] = CONTENT.hero.title.split(' | ');
 
   return (
@@ -307,9 +309,11 @@ const SlideHero = ({ step }: { step: number }) => {
            <h2 className="text-2xl md:text-4xl lg:text-6xl font-black text-brand-blue leading-tight italic underline decoration-brand-orange underline-offset-8 decoration-4">
              {arabicDesc}
            </h2>
-           <p className="text-xl md:text-2xl lg:text-4xl font-black text-brand-orange italic mt-1 lg:mt-2 uppercase tracking-wide">
-             ({englishDesc}
-           </p>
+          {englishDesc && (
+            <p className="text-base md:text-xl lg:text-3xl font-black text-brand-blue italic mt-1 lg:mt-2 uppercase tracking-wide">
+              {englishDesc}
+            </p>
+          )}
          </div>
          <div className="flex flex-col md:flex-row justify-center gap-6 lg:gap-12 pt-6 lg:pt-8 border-t border-slate-100">
            <div className="text-center md:text-right">
