@@ -310,7 +310,7 @@ const SlideHero = ({ step }: { step: number }) => {
              {arabicDesc}
            </h2>
           {englishDesc && (
-            <p className="text-base md:text-xl lg:text-3xl font-black text-brand-blue italic mt-1 lg:mt-2 uppercase tracking-wide">
+            <p className="text-base md:text-xl lg:text-3xl font-black text-[#5B76CC] italic mt-1 lg:mt-2 uppercase tracking-wide">
               {englishDesc}
             </p>
           )}
