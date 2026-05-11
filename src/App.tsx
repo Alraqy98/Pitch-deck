@@ -67,6 +67,7 @@ export default function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const [direction, setDirection] = useState(0);
+  const isPdfMode = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('pdf');
 
   // Define max steps for each slide (0-indexed)
   const getStepsForSlide = (index: number) => {
@@ -156,6 +157,20 @@ export default function App() {
       }
     })
   };
+
+  if (isPdfMode) {
+    return (
+      <div className="pdf-deck bg-brand-light text-brand-dark font-sans rtl">
+        {SLIDES.map((slideId, index) => (
+          <section key={`${slideId}-${index}`} className="pdf-page">
+            <div className="pdf-slide-shell">
+              {renderSlide(index, getStepsForSlide(index))}
+            </div>
+          </section>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="h-screen w-screen bg-brand-light text-brand-dark overflow-hidden selection:bg-brand-orange selection:text-white font-sans flex flex-col rtl">

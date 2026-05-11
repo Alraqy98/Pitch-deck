@@ -49,3 +49,63 @@ body {
 .orange-gradient-text {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange to-brand-blue;
 }
+
+.pdf-deck {
+  width: 100%;
+}
+
+.pdf-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  break-after: page;
+  page-break-after: always;
+}
+
+.pdf-slide-shell {
+  width: 100%;
+  max-width: 1400px;
+  height: calc(100vh - 48px);
+  min-height: 700px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: auto;
+    overflow: visible !important;
+    background: #f8fafc !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .pdf-page {
+    min-height: 100vh;
+    padding: 12mm;
+  }
+
+  .pdf-slide-shell {
+    width: 100%;
+    height: auto;
+    min-height: 180mm;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
