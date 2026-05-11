@@ -7,10 +7,10 @@ export const CONTENT = {
   hero: {
     title: "90x90 | نقطة تحول",
     tagline: "بين الإمكانات ... والنتائج",
-    description: "برنامج تنفيذي لتفعيل الأداء والنمو (Execution-Led Business Activation Framework)",
+    description: "برنامج تنفيذي لتفعيل الأداء والنمو Execution-Led Business Activation Framework",
     consultant: "م. رائد أبوعيسى",
     role: "مستشار الحوكمة التشغيلية و نمو الاعمال",
-    subrole: "(Operational Governance & Revenue Activation)"
+    subrole: "Operational Governance and Business Growth Consultant"
   },
   slide2: {
     title: "نمط كثير من الشركات العائلية اليوم",
