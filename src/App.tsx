@@ -512,6 +512,7 @@ const SlideBuild = ({ step }: { step: number }) => (
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.1 }}
           className="text-center"
         >
            <p className="text-brand-blue font-black italic text-sm lg:text-lg">منهجية RAI™ تركز على الاستدامة والنتائج القياسية</p>
@@ -564,67 +565,96 @@ const SlideSectors = ({ step }: { step: number }) => (
   </div>
 );
 
-const SlideGrowthGap = ({ step }: { step: number }) => (
-  <div className="presentation-slide space-y-6 lg:space-y-8" dir="rtl">
-    <div className="flex items-end justify-between border-b-2 border-slate-100 pb-3">
-      <div className="text-right">
-        <h2 className="text-3xl lg:text-5xl font-black text-brand-blue italic leading-tight">{CONTENT.slideGap.titleAr}</h2>
-        <p className="text-lg lg:text-2xl font-black text-brand-blue/70 italic mt-1">{CONTENT.slideGap.titleEn}</p>
+const SlideGrowthGap = ({ step }: { step: number }) => {
+  const toPercent = (value: string) => Number(value.replace(/[^\d.]/g, '')) || 0;
+  const potentialPct = toPercent(CONTENT.slideGap.potential.value);
+  const actualPct = toPercent(CONTENT.slideGap.actual.value);
+  const maxPct = Math.max(potentialPct, actualPct, 1);
+  const chartHeight = 340;
+  const potentialHeight = (potentialPct / maxPct) * chartHeight;
+  const actualHeight = (actualPct / maxPct) * chartHeight;
+  const gapHeight = Math.max(potentialHeight - actualHeight, 0);
+
+  return (
+    <div className="presentation-slide space-y-6 lg:space-y-8" dir="rtl">
+      <div className="flex items-end justify-between border-b-2 border-slate-100 pb-3">
+        <div className="text-right">
+          <h2 className="text-3xl lg:text-5xl font-black text-brand-blue italic leading-tight">{CONTENT.slideGap.titleAr}</h2>
+          <p className="text-lg lg:text-2xl font-black text-brand-blue/70 italic mt-1">{CONTENT.slideGap.titleEn}</p>
+        </div>
       </div>
-    </div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-end">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={step >= 1 ? { opacity: 1, y: 0 } : { opacity: 0.2, y: 20 }}
-        className="lg:col-span-5 bg-brand-blue text-white rounded-2xl lg:rounded-[2rem] p-5 lg:p-8 shadow-xl min-h-[280px] lg:min-h-[360px] flex flex-col justify-between"
-      >
-        <div className="space-y-1">
-          <p className="text-2xl lg:text-4xl font-black italic">{CONTENT.slideGap.potential.titleAr}</p>
-          <p className="text-sm lg:text-xl font-black uppercase tracking-widest text-white/80">{CONTENT.slideGap.potential.titleEn}</p>
-        </div>
-        <p className="text-4xl lg:text-6xl font-black italic">{CONTENT.slideGap.potential.value}</p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={step >= 2 ? { opacity: 1, scale: 1 } : { opacity: 0.2, scale: 0.95 }}
-        className="lg:col-span-2 bg-red-50 border-2 border-red-200 text-red-700 rounded-2xl lg:rounded-[2rem] p-4 lg:p-6 min-h-[220px] lg:min-h-[300px] flex flex-col justify-center items-center text-center shadow-lg"
-      >
-        <p className="text-lg lg:text-2xl font-black uppercase tracking-widest">{CONTENT.slideGap.gap.label}</p>
-        <p className="text-3xl lg:text-5xl font-black mt-2">{CONTENT.slideGap.gap.titleAr}</p>
-        <p className="text-4xl lg:text-6xl font-black mt-3">{CONTENT.slideGap.gap.value}</p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={step >= 1 ? { opacity: 1, y: 0 } : { opacity: 0.2, y: 20 }}
-        className="lg:col-span-5 bg-brand-orange/80 text-brand-blue rounded-2xl lg:rounded-[2rem] p-5 lg:p-8 shadow-xl min-h-[230px] lg:min-h-[300px] flex flex-col justify-between"
-      >
-        <div className="space-y-1">
-          <p className="text-2xl lg:text-4xl font-black italic">{CONTENT.slideGap.actual.titleAr}</p>
-          <p className="text-sm lg:text-xl font-black uppercase tracking-widest text-brand-blue/80">{CONTENT.slideGap.actual.titleEn}</p>
-        </div>
-        <p className="text-4xl lg:text-6xl font-black italic">{CONTENT.slideGap.actual.value}</p>
-      </motion.div>
-    </div>
-
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={step >= 2 ? { opacity: 1, y: 0 } : { opacity: 0 }}
-      className="grid grid-cols-1 md:grid-cols-3 gap-2 lg:gap-3"
-    >
-      {CONTENT.slideGap.drivers.map((item, i) => (
-        <div
-          key={i}
-          className="px-4 py-3 rounded-xl bg-brand-blue text-white text-center font-black text-xs lg:text-sm tracking-wide border border-white/10 shadow-md"
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-5 items-end">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={step >= 1 ? { opacity: 1, y: 0 } : { opacity: 0.15, y: 30 }}
+          className="lg:col-span-5 flex items-end"
+          style={{ height: `${chartHeight}px` }}
         >
-          {item}
-        </div>
-      ))}
-    </motion.div>
-  </div>
-);
+          <div
+            className="w-full bg-brand-blue text-white rounded-2xl lg:rounded-[2rem] p-5 lg:p-7 shadow-xl flex flex-col justify-between"
+            style={{ height: `${potentialHeight}px` }}
+          >
+            <div className="space-y-1">
+              <p className="text-2xl lg:text-4xl font-black italic">{CONTENT.slideGap.potential.titleAr}</p>
+              <p className="text-sm lg:text-xl font-black uppercase tracking-widest text-white/80">{CONTENT.slideGap.potential.titleEn}</p>
+            </div>
+            <p className="text-4xl lg:text-6xl font-black italic">{CONTENT.slideGap.potential.value}</p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={step >= 2 ? { opacity: 1, scale: 1 } : { opacity: 0 }}
+          className="lg:col-span-2 flex items-end justify-center"
+          style={{ height: `${chartHeight}px` }}
+        >
+          <div
+            className="w-full max-w-[170px] bg-red-50 border-2 border-red-200 text-red-700 rounded-2xl lg:rounded-[2rem] p-3 lg:p-5 flex flex-col justify-center items-center text-center shadow-lg"
+            style={{ height: `${gapHeight}px`, marginBottom: `${actualHeight}px` }}
+          >
+            <p className="text-sm lg:text-xl font-black uppercase tracking-widest">{CONTENT.slideGap.gap.label}</p>
+            <p className="text-2xl lg:text-4xl font-black mt-1">{CONTENT.slideGap.gap.titleAr}</p>
+            <p className="text-3xl lg:text-5xl font-black mt-1">{CONTENT.slideGap.gap.value}</p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={step >= 1 ? { opacity: 1, y: 0 } : { opacity: 0.15, y: 30 }}
+          className="lg:col-span-5 flex items-end"
+          style={{ height: `${chartHeight}px` }}
+        >
+          <div
+            className="w-full bg-brand-blue/70 text-brand-blue rounded-2xl lg:rounded-[2rem] p-5 lg:p-7 shadow-xl flex flex-col justify-between"
+            style={{ height: `${actualHeight}px` }}
+          >
+            <div className="space-y-1">
+              <p className="text-2xl lg:text-4xl font-black italic">{CONTENT.slideGap.actual.titleAr}</p>
+              <p className="text-sm lg:text-xl font-black uppercase tracking-widest text-brand-blue/80">{CONTENT.slideGap.actual.titleEn}</p>
+            </div>
+            <p className="text-4xl lg:text-6xl font-black italic">{CONTENT.slideGap.actual.value}</p>
+          </div>
+        </motion.div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={step >= 2 ? { opacity: 1, y: 0 } : { opacity: 0 }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-2 lg:gap-3"
+      >
+        {CONTENT.slideGap.drivers.map((item, i) => (
+          <div
+            key={i}
+            className="px-4 py-3 rounded-xl bg-brand-blue text-white text-center font-black text-xs lg:text-sm tracking-wide border border-white/10 shadow-md"
+          >
+            {item}
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
 
 const SlideTimeline = ({ step }: { step: number }) => (
   <div className="presentation-slide space-y-6 lg:space-y-8 w-full">
