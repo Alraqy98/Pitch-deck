@@ -278,7 +278,7 @@ const SlideIntroLogo = ({ step }: { step: number }) => (
       transition={{ duration: 0.5 }}
       src="/intro-logo.png"
       alt="90x90 Logo"
-      className="max-h-[86vh] max-w-[92vw] object-contain drop-shadow-sm"
+      className="max-h-[86vh] max-w-[92vw] object-contain rounded-2xl lg:rounded-[2.5rem] drop-shadow-sm"
     />
   </div>
 );
