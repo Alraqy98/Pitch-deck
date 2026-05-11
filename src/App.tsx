@@ -904,7 +904,7 @@ const SlideOutcomes = ({ step }: { step: number }) => {
         </div>
       </div>
       
-      <div className="flex flex-col gap-6 lg:gap-10 items-center justify-center h-[calc(100%-100px)] max-w-6xl mx-auto py-4">
+      <div className="pdf-print-outcomes-body flex flex-col gap-6 lg:gap-10 items-center justify-center h-[calc(100%-100px)] max-w-6xl mx-auto py-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 w-full">
           {CONTENT.slide7.outcomes.map((o, i) => (
             <motion.div 
@@ -912,7 +912,7 @@ const SlideOutcomes = ({ step }: { step: number }) => {
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
               animate={step >= 1 ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0.1, scale: 0.9, y: 30 }}
               transition={{ delay: i * 0.2 }}
-              className="p-8 lg:p-12 bg-white rounded-[2rem] lg:rounded-[4rem] border-2 border-slate-50 shadow-2xl hover:shadow-brand-blue/10 transition-all flex flex-col justify-between group relative overflow-hidden h-full min-h-[350px]"
+              className="pdf-print-outcome-card p-8 lg:p-12 bg-white rounded-[2rem] lg:rounded-[4rem] border-2 border-slate-50 shadow-2xl hover:shadow-brand-blue/10 transition-all flex flex-col justify-between group relative overflow-hidden h-full min-h-[350px]"
             >
               <div className={`absolute top-0 right-0 w-2 h-full ${i === 0 ? 'bg-brand-blue' : 'bg-brand-orange'} opacity-20`}></div>
               
@@ -963,7 +963,7 @@ const SlideCaseStudy = ({ step }: { step: number }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-6 items-stretch flex-grow overflow-hidden">
+      <div className="pdf-print-case-grid grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-6 items-stretch flex-grow overflow-hidden">
         {/* Main Content Area - 8 Columns */}
         <div className="lg:col-span-8 flex flex-col gap-2 lg:gap-3 justify-center">
           <motion.div 
@@ -1026,7 +1026,7 @@ const SlideCaseStudy = ({ step }: { step: number }) => {
         </div>
 
         {/* Sidebar Findings - 4 Columns */}
-        <div className="lg:col-span-4 flex flex-col gap-2 lg:gap-3 overflow-hidden">
+        <div className="pdf-print-case-sidebar lg:col-span-4 flex flex-col gap-2 lg:gap-3 overflow-hidden">
            <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 shrink-0">
               {CONTENT.slide8.initialFeedback.map((text, i) => (
                 <motion.div 

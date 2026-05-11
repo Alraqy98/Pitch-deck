@@ -144,17 +144,23 @@ body {
     transform-origin: center top;
   }
 
-  /* Tallest slides: a bit smaller + top-aligned so titles and footers are not clipped */
+  /*
+   * Slides 7 & 8: bottom cutoff — fixed shell + overflow + h-[calc(...)] clip content.
+   * Stronger scale + flow fixes (classes on slide 7/8 markup); shell a bit taller.
+   */
   [data-pdf-slide="slide7"] .pdf-scale,
   [data-pdf-slide="slide8"] .pdf-scale {
-    transform: scale(0.72);
+    transform: scale(0.64) !important;
     transform-origin: top center;
+    width: 156.25%;
+    height: 156.25%;
+    margin-inline: -28.125%;
     isolation: isolate;
   }
 
   [data-pdf-slide="slide7"].pdf-page,
   [data-pdf-slide="slide8"].pdf-page {
-    padding: 8mm 10mm 10mm;
+    padding: 3mm 8mm 4mm;
     align-items: flex-start;
   }
 
@@ -163,10 +169,46 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     padding-top: 0;
+    height: 200mm !important;
+    max-height: none !important;
   }
 
-  [data-pdf-slide="slide7"] .min-h-\[350px\] {
-    min-height: 200px !important;
+  /* Slide 7: drop calc() height trap so cards can show full footers */
+  [data-pdf-slide="slide7"] .pdf-print-outcomes-body {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: 0 1 auto !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+    gap: 0.75rem !important;
+  }
+
+  [data-pdf-slide="slide7"] .pdf-print-outcome-card {
+    min-height: 0 !important;
+    padding: 1rem 1.25rem !important;
+  }
+
+  [data-pdf-slide="slide7"] .pdf-print-outcome-card .mt-8 {
+    margin-top: 0.65rem !important;
+  }
+
+  [data-pdf-slide="slide7"] .pdf-print-outcome-card .pt-8 {
+    padding-top: 0.65rem !important;
+  }
+
+  /* Slide 8: unclip sidebar + main grid; shrink gaps slightly */
+  [data-pdf-slide="slide8"] .pdf-print-case-grid,
+  [data-pdf-slide="slide8"] .pdf-print-case-sidebar {
+    overflow: visible !important;
+  }
+
+  [data-pdf-slide="slide8"] .pdf-print-case-grid {
+    gap: 0.5rem !important;
+  }
+
+  [data-pdf-slide="slide8"] .pdf-print-case-sidebar {
+    gap: 0.35rem !important;
   }
 
   [data-pdf-slide="slide7"] .pdf-slide-shell,
