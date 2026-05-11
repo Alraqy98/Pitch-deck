@@ -1301,20 +1301,27 @@ const SlidePositioning = ({ step }: { step: number }) => {
 
 const SlideThanks = ({ step }: { step: number }) => {
   const content = (CONTENT as any).thanks;
+  const isPdfExport =
+    typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('pdf');
+  const pdfMotion = {
+    initial: { opacity: 1, x: 0, y: 0, scale: 1 } as const,
+    transition: { duration: 0 } as const,
+  };
   return (
     <div className="presentation-slide flex flex-col items-center justify-center text-center space-y-10 lg:space-y-16 py-8 lg:py-12">
       <div className="space-y-4 lg:space-y-8">
         <motion.h2 
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={isPdfExport ? pdfMotion.initial : { opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
+          transition={isPdfExport ? pdfMotion.transition : undefined}
           className="text-6xl md:text-8xl lg:text-9xl font-black text-brand-blue tracking-tighter leading-none italic"
         >
           {content.title}
         </motion.h2>
         <motion.p 
-          initial={{ opacity: 0, y: 20 }}
+          initial={isPdfExport ? pdfMotion.initial : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={isPdfExport ? pdfMotion.transition : { delay: 0.3 }}
           className="text-lg md:text-2xl lg:text-3xl font-bold text-brand-orange italic max-w-4xl mx-auto leading-relaxed px-4"
         >
           {content.subtitle}
@@ -1324,9 +1331,9 @@ const SlideThanks = ({ step }: { step: number }) => {
       <div className="flex flex-col items-center justify-center gap-12 lg:gap-20 w-full max-w-7xl">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-20">
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
+            initial={isPdfExport ? pdfMotion.initial : { opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6 }}
+            transition={isPdfExport ? pdfMotion.transition : { delay: 0.6 }}
             className="flex flex-col items-center"
           >
             <div className="w-40 h-40 lg:w-72 lg:h-72 bg-white rounded-[2.5rem] lg:rounded-[4rem] shadow-2xl border border-slate-100 flex items-center justify-center overflow-hidden p-6 lg:p-12 hover:scale-105 transition-transform group">
@@ -1344,22 +1351,26 @@ const SlideThanks = ({ step }: { step: number }) => {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={isPdfExport ? pdfMotion.initial : { opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1 }}
+            transition={isPdfExport ? pdfMotion.transition : { delay: 1 }}
             className="flex flex-col items-center px-8"
           >
-            <div className="h-0.5 w-12 bg-brand-orange/30 mb-6 hidden lg:block"></div>
-            <span className="text-xl md:text-2xl lg:text-4xl font-black text-brand-blue uppercase tracking-widest italic text-center whitespace-nowrap">
+            <div className={`h-0.5 w-12 bg-brand-orange/40 mb-4 ${isPdfExport ? 'block' : 'hidden lg:block'}`}></div>
+            <span
+              className={`thanks-contact-name text-xl md:text-2xl lg:text-4xl font-black text-brand-blue text-center whitespace-nowrap ${
+                isPdfExport ? 'not-italic tracking-normal' : 'uppercase tracking-widest italic'
+              }`}
+            >
               {content.contact}
             </span>
-            <div className="h-0.5 w-12 bg-brand-orange/30 mt-6 hidden lg:block"></div>
+            <div className={`h-0.5 w-12 bg-brand-orange/40 mt-4 ${isPdfExport ? 'block' : 'hidden lg:block'}`}></div>
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
+            initial={isPdfExport ? pdfMotion.initial : { opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8 }}
+            transition={isPdfExport ? pdfMotion.transition : { delay: 0.8 }}
             className="flex flex-col items-center"
           >
             <div className="w-40 h-40 lg:w-72 lg:h-72 bg-white rounded-[2.5rem] lg:rounded-[4rem] shadow-2xl border border-slate-100 flex items-center justify-center overflow-hidden p-4 lg:p-6 hover:scale-105 transition-transform group">
