@@ -164,7 +164,9 @@ export default function App() {
         {SLIDES.map((slideId, index) => (
           <section key={`${slideId}-${index}`} className="pdf-page">
             <div className="pdf-slide-shell">
-              {renderSlide(index, getStepsForSlide(index))}
+              <div className="pdf-scale">
+                {renderSlide(index, getStepsForSlide(index))}
+              </div>
             </div>
           </section>
         ))}
