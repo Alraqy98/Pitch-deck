@@ -107,6 +107,7 @@ body {
     page-break-after: always;
     break-inside: avoid;
     page-break-inside: avoid;
+    overflow: hidden;
   }
 
   .pdf-slide-shell {
@@ -144,23 +145,17 @@ body {
     transform-origin: center top;
   }
 
-  /*
-   * Slides 7 & 8: bottom cutoff — fixed shell + overflow + h-[calc(...)] clip content.
-   * Stronger scale + flow fixes (classes on slide 7/8 markup); shell a bit taller.
-   */
+  /* Slides 7 & 8: denser layout only — same box model as default .pdf-scale (no negative margins) */
   [data-pdf-slide="slide7"] .pdf-scale,
   [data-pdf-slide="slide8"] .pdf-scale {
-    transform: scale(0.64) !important;
+    transform: scale(0.74) !important;
     transform-origin: top center;
-    width: 156.25%;
-    height: 156.25%;
-    margin-inline: -28.125%;
-    isolation: isolate;
+    width: 113.64%;
+    height: 113.64%;
   }
 
   [data-pdf-slide="slide7"].pdf-page,
   [data-pdf-slide="slide8"].pdf-page {
-    padding: 3mm 8mm 4mm;
     align-items: flex-start;
   }
 
@@ -168,9 +163,6 @@ body {
   [data-pdf-slide="slide8"] .pdf-slide-shell {
     align-items: flex-start;
     justify-content: flex-start;
-    padding-top: 0;
-    height: 200mm !important;
-    max-height: none !important;
   }
 
   /* Slide 7: drop calc() height trap so cards can show full footers */
@@ -197,12 +189,7 @@ body {
     padding-top: 0.65rem !important;
   }
 
-  /* Slide 8: unclip sidebar + main grid; shrink gaps slightly */
-  [data-pdf-slide="slide8"] .pdf-print-case-grid,
-  [data-pdf-slide="slide8"] .pdf-print-case-sidebar {
-    overflow: visible !important;
-  }
-
+  /* Slide 8: slightly tighter gaps so more fits inside the shell (still clipped, not spilled) */
   [data-pdf-slide="slide8"] .pdf-print-case-grid {
     gap: 0.5rem !important;
   }
@@ -211,35 +198,11 @@ body {
     gap: 0.35rem !important;
   }
 
-  [data-pdf-slide="slide7"] .pdf-slide-shell,
-  [data-pdf-slide="slide8"] .pdf-slide-shell,
-  [data-pdf-slide="slide9"] .pdf-slide-shell,
-  [data-pdf-slide="slide10"] .pdf-slide-shell {
-    overflow: visible;
-  }
-
-  [data-pdf-slide="slide7"] .pdf-slide-shell .presentation-slide,
-  [data-pdf-slide="slide8"] .pdf-slide-shell .presentation-slide,
-  [data-pdf-slide="slide9"] .pdf-slide-shell .presentation-slide,
-  [data-pdf-slide="slide10"] .pdf-slide-shell .presentation-slide {
-    overflow: visible !important;
-    max-height: none !important;
-  }
-
   [data-pdf-slide="slide7"] .pdf-slide-shell .presentation-slide,
   [data-pdf-slide="slide8"] .pdf-slide-shell .presentation-slide {
     justify-content: flex-start !important;
     padding-top: 8px !important;
     padding-bottom: 8px !important;
-  }
-
-  [data-pdf-slide="slide8"] .overflow-y-auto {
-    overflow: visible !important;
-    max-height: none !important;
-  }
-
-  [data-pdf-slide="slide8"] .grid.flex-grow.overflow-hidden {
-    overflow: visible !important;
   }
 
   [data-pdf-slide="slide8"] .min-h-0 {
