@@ -160,9 +160,9 @@ export default function App() {
 
   if (isPdfMode) {
     return (
-      <div className="pdf-deck pdf-print-mode bg-brand-light text-brand-dark font-sans rtl">
+      <div className="pdf-deck bg-brand-light text-brand-dark font-sans rtl">
         {SLIDES.map((slideId, index) => (
-          <section key={`${slideId}-${index}`} className="pdf-page">
+          <section key={`${slideId}-${index}`} className="pdf-page" data-pdf-slide={slideId}>
             <div className="pdf-slide-shell">
               <div className="pdf-scale">
                 {renderSlide(index, getStepsForSlide(index))}

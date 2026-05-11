@@ -87,7 +87,7 @@ body {
 @media print {
   @page {
     size: A4 landscape;
-    margin: 8mm;
+    margin: 0;
   }
 
   html,
@@ -101,11 +101,8 @@ body {
   }
 
   .pdf-page {
-    min-height: 0;
-    height: auto;
-    max-height: none;
-    padding: 0;
-    display: block;
+    min-height: 100vh;
+    padding: 12mm;
     break-after: page;
     page-break-after: always;
     break-inside: avoid;
@@ -114,68 +111,68 @@ body {
 
   .pdf-slide-shell {
     width: 100%;
-    max-width: none;
-    height: auto;
-    min-height: 0;
-    max-height: none;
+    height: 185mm;
+    min-height: 180mm;
     border: 0;
     border-radius: 0;
     box-shadow: none;
-    overflow: visible;
-    display: block;
-    padding: 0;
-    background: transparent;
+    overflow: hidden;
   }
 
-  /* Scale from center so top titles are not clipped; slightly smaller for dense slides */
   .pdf-scale {
-    transform: scale(0.74);
-    transform-origin: center center;
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 2mm 0 6mm;
+    transform: scale(0.88);
+    transform-origin: top center;
+    width: 113.64%;
+    height: 113.64%;
   }
 
-  .pdf-print-mode {
-    font-size: 94%;
+  .pdf-slide-shell .presentation-slide {
+    overflow: hidden !important;
+    max-height: 100% !important;
+    padding: 12px 18px !important;
   }
 
-  .pdf-print-mode .presentation-slide {
+  /*
+   * PDF fixes only for slides that had clipping (deep dive outcomes,
+   * case study, activation phase, partnership). Other slides unchanged.
+   */
+  [data-pdf-slide="slide7"] .pdf-scale,
+  [data-pdf-slide="slide8"] .pdf-scale,
+  [data-pdf-slide="slide9"] .pdf-scale,
+  [data-pdf-slide="slide10"] .pdf-scale {
+    transform: scale(0.8);
+    transform-origin: center top;
+  }
+
+  [data-pdf-slide="slide7"] .min-h-\[350px\] {
+    min-height: 240px !important;
+  }
+
+  [data-pdf-slide="slide7"] .pdf-slide-shell,
+  [data-pdf-slide="slide8"] .pdf-slide-shell,
+  [data-pdf-slide="slide9"] .pdf-slide-shell,
+  [data-pdf-slide="slide10"] .pdf-slide-shell {
+    overflow: visible;
+  }
+
+  [data-pdf-slide="slide7"] .pdf-slide-shell .presentation-slide,
+  [data-pdf-slide="slide8"] .pdf-slide-shell .presentation-slide,
+  [data-pdf-slide="slide9"] .pdf-slide-shell .presentation-slide,
+  [data-pdf-slide="slide10"] .pdf-slide-shell .presentation-slide {
     overflow: visible !important;
     max-height: none !important;
-    height: auto !important;
-    min-height: 0 !important;
-    justify-content: flex-start !important;
-    padding: 10px 14px !important;
   }
 
-  /* Screen-only scroll regions: show full content in PDF */
-  .pdf-print-mode .overflow-y-auto {
+  [data-pdf-slide="slide8"] .overflow-y-auto {
     overflow: visible !important;
     max-height: none !important;
   }
 
-  /* Outer slide grids that hid overflow on screen */
-  .pdf-print-mode .presentation-slide .grid.flex-grow.overflow-hidden {
+  [data-pdf-slide="slide8"] .grid.flex-grow.overflow-hidden {
     overflow: visible !important;
   }
 
-  .pdf-print-mode .min-h-0 {
+  [data-pdf-slide="slide8"] .min-h-0 {
     min-height: auto !important;
-  }
-
-  .pdf-print-mode .flex-grow {
-    flex-grow: 0 !important;
-  }
-
-  /* Drop rigid min-heights so tall slides can shrink to one page */
-  .pdf-print-mode .min-h-\[350px\],
-  .pdf-print-mode .min-h-\[220px\],
-  .pdf-print-mode .lg\:min-h-\[280px\] {
-    min-height: 0 !important;
   }
 }
