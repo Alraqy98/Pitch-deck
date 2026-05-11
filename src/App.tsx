@@ -646,7 +646,7 @@ const SlideGrowthGap = ({ step }: { step: number }) => {
         {CONTENT.slideGap.drivers.map((item, i) => (
           <div
             key={i}
-            className="px-4 py-3 rounded-xl bg-brand-blue text-white text-center font-black text-xs lg:text-sm tracking-wide border border-white/10 shadow-md"
+            className="px-4 py-3 rounded-xl bg-[#5B76CC] text-white text-center font-black text-xs lg:text-sm tracking-wide border border-white/10 shadow-md"
           >
             {item}
           </div>
