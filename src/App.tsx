@@ -81,7 +81,7 @@ export default function App() {
       case 'slideTimeline': return 4;
       case 'slide5': return 3;
       case 'slide6': return 2;
-      case 'slide7': return 3;
+      case 'slide7': return 1;
       case 'slide8': return 4;
       case 'slide9': return 3;
       case 'slide10': return 3;
@@ -1323,7 +1323,7 @@ const SlideThanks = ({ step }: { step: number }) => {
           >
             <div className="w-40 h-40 lg:w-72 lg:h-72 bg-white rounded-[2.5rem] lg:rounded-[4rem] shadow-2xl border border-slate-100 flex items-center justify-center overflow-hidden p-4 lg:p-6 hover:scale-105 transition-transform group">
               <img 
-                src="/logo_90x90.png" 
+                src="/intro-logo.png" 
                 alt="90x90 Logo" 
                 className="w-full h-full object-contain group-hover:-rotate-3 transition-transform"
               />
