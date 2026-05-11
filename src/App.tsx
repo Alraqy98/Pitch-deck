@@ -626,12 +626,12 @@ const SlideGrowthGap = ({ step }: { step: number }) => {
           style={{ height: `${chartHeight}px` }}
         >
           <div
-            className="w-full bg-brand-blue/70 text-brand-blue rounded-2xl lg:rounded-[2rem] p-5 lg:p-7 shadow-xl flex flex-col justify-between"
+            className="w-full bg-green-600/85 text-white rounded-2xl lg:rounded-[2rem] p-5 lg:p-7 shadow-xl flex flex-col justify-between"
             style={{ height: `${actualHeight}px` }}
           >
             <div className="space-y-1">
               <p className="text-2xl lg:text-4xl font-black italic">{CONTENT.slideGap.actual.titleAr}</p>
-              <p className="text-sm lg:text-xl font-black uppercase tracking-widest text-brand-blue/80">{CONTENT.slideGap.actual.titleEn}</p>
+              <p className="text-sm lg:text-xl font-black uppercase tracking-widest text-white/85">{CONTENT.slideGap.actual.titleEn}</p>
             </div>
             <p className="text-4xl lg:text-6xl font-black italic">{CONTENT.slideGap.actual.value}</p>
           </div>
