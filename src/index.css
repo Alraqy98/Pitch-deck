@@ -208,4 +208,115 @@ body {
   [data-pdf-slide="slide8"] .min-h-0 {
     min-height: auto !important;
   }
+
+  /* Slide 9 (Activation): title clipped at top; action card text clipped at bottom */
+  [data-pdf-slide="slide9"] .pdf-scale {
+    transform: scale(0.72) !important;
+    transform-origin: top center;
+    width: 113.64%;
+    height: 113.64%;
+  }
+
+  [data-pdf-slide="slide9"].pdf-page {
+    align-items: flex-start;
+  }
+
+  [data-pdf-slide="slide9"] .pdf-slide-shell {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  [data-pdf-slide="slide9"] .pdf-slide-shell .presentation-slide {
+    justify-content: flex-start !important;
+    padding-top: 10px !important;
+    padding-bottom: 6px !important;
+  }
+
+  [data-pdf-slide="slide9"] .presentation-slide > .border-b-2 {
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  [data-pdf-slide="slide9"] .presentation-slide h2 {
+    font-size: 1.35rem !important;
+    line-height: 1.2 !important;
+    padding-top: 2px !important;
+  }
+
+  [data-pdf-slide="slide9"] .presentation-slide .border-b-2 + * {
+    margin-top: 0.25rem;
+  }
+
+  [data-pdf-slide="slide9"] .pdf-print-slide9-action {
+    align-items: flex-start !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0.4rem 0.55rem !important;
+  }
+
+  [data-pdf-slide="slide9"] .pdf-print-slide9-action span {
+    font-size: 0.65rem !important;
+    line-height: 1.25 !important;
+    word-break: break-word;
+  }
+
+  [data-pdf-slide="slide9"] .min-h-0.grid {
+    gap: 0.5rem !important;
+  }
+
+  [data-pdf-slide="slide9"] .overflow-hidden.shadow-inner {
+    padding: 0.65rem !important;
+  }
+
+  /* Slide 10 (Partnership): tighten vertical rhythm so footer + banner fit */
+  [data-pdf-slide="slide10"] .pdf-scale {
+    transform: scale(0.74) !important;
+    transform-origin: top center;
+    width: 113.64%;
+    height: 113.64%;
+  }
+
+  [data-pdf-slide="slide10"].pdf-page {
+    align-items: flex-start;
+  }
+
+  [data-pdf-slide="slide10"] .pdf-slide-shell {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  [data-pdf-slide="slide10"] .pdf-slide-shell .presentation-slide {
+    justify-content: flex-start !important;
+    padding-top: 8px !important;
+    padding-bottom: 6px !important;
+    gap: 0.4rem !important;
+  }
+
+  [data-pdf-slide="slide10"] .presentation-slide h2 {
+    font-size: 1.35rem !important;
+    line-height: 1.2 !important;
+  }
+
+  [data-pdf-slide="slide10"] .presentation-slide .border-b-2 {
+    padding-bottom: 0.35rem !important;
+  }
+
+  [data-pdf-slide="slide10"] .grid.grid-cols-2 {
+    gap: 0.35rem !important;
+  }
+
+  [data-pdf-slide="slide10"] .bg-green-600 {
+    padding: 0.65rem 0.85rem !important;
+  }
+
+  [data-pdf-slide="slide10"] .bg-green-600 .flex.flex-wrap > div {
+    font-size: 0.58rem !important;
+    line-height: 1.2 !important;
+    padding: 0.2rem 0.45rem !important;
+  }
+
+  [data-pdf-slide="slide10"] .text-center.p-2 p {
+    font-size: 0.85rem !important;
+    line-height: 1.25 !important;
+  }
 }

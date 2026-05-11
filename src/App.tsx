@@ -1105,7 +1105,7 @@ const SlidePhaseThree = ({ step }: { step: number }) => {
                  initial={{ opacity: 0, x: 20 }}
                  animate={step >= 1 ? { opacity: 1, x: 0 } : { opacity: 0.1, x: 20 }}
                  transition={{ delay: i * 0.1 }}
-                 className="p-3 lg:p-4 bg-brand-blue text-white rounded-xl lg:rounded-2xl flex items-center justify-between group hover:bg-brand-orange transition-all shadow-sm hover:shadow-md h-full"
+                 className="pdf-print-slide9-action p-3 lg:p-4 bg-brand-blue text-white rounded-xl lg:rounded-2xl flex items-center justify-between group hover:bg-brand-orange transition-all shadow-sm hover:shadow-md h-full"
                >
                   <span className="text-sm lg:text-base font-black italic">{act}</span>
                   <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-lg bg-white/10 flex items-center justify-center group-hover:bg-white/20 shrink-0">
