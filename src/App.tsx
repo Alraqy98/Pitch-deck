@@ -875,8 +875,25 @@ const SlidePhaseOne = ({ step }: { step: number }) => {
              <ArrowLeft size={14} className="text-slate-200 group-hover:text-brand-orange group-hover:-translate-x-2 transition-all shrink-0" />
           </motion.div>
         ))}
+        {step >= 3 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="pt-2"
+          >
+            <a
+              href="https://rai-assessment.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 lg:p-6 bg-brand-blue hover:bg-brand-orange text-white font-black italic text-center rounded-[2rem] shadow-xl transition-all flex items-center justify-center gap-4 group border-3 border-white/20 hover:scale-105 active:scale-95"
+            >
+              <span className="text-lg lg:text-2xl">ابدأ التقييم الآن</span>
+              <Globe size={28} className="group-hover:rotate-12 transition-transform" />
+            </a>
+          </motion.div>
+        )}
       </motion.div>
-      <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
+      <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
         {CONTENT.slide5.tracks.map((track, i) => (
           <motion.div 
             key={i}
@@ -891,21 +908,6 @@ const SlidePhaseOne = ({ step }: { step: number }) => {
           </motion.div>
         ))}
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={step >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        className="lg:col-span-2 flex items-center"
-      >
-        <a 
-          href="https://rai-assessment.vercel.app/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="w-full p-4 lg:p-5 bg-brand-blue hover:bg-brand-orange text-white font-black italic text-center rounded-[1.5rem] lg:rounded-[2rem] shadow-xl transition-all flex flex-col items-center justify-center gap-3 lg:gap-4 group border-3 border-white/20 hover:scale-105 active:scale-95 min-h-[120px] lg:min-h-0 lg:h-full"
-        >
-          <span className="text-base lg:text-xl leading-snug">ابدأ التقييم الآن</span>
-          <Globe size={24} className="lg:w-7 lg:h-7 group-hover:rotate-12 transition-transform shrink-0" />
-        </a>
-      </motion.div>
     </div>
   </div>
 );
