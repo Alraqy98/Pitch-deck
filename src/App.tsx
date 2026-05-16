@@ -22,7 +22,9 @@ import {
   Search,
   CheckCircle2,
   Briefcase,
-  Quote
+  Quote,
+  Calendar,
+  Clock
 } from 'lucide-react';
 import { 
   PieChart, 
@@ -46,6 +48,7 @@ import { CONTENT } from './constants';
 const SLIDES = [
   'slideIntroLogo',
   'hero',
+  'slideConcept',
   'slide3',
   'slide4',
   'slide2',
@@ -75,6 +78,7 @@ export default function App() {
     switch (slideId) {
       case 'slideIntroLogo': return 0;
       case 'hero': return 0;
+      case 'slideConcept': return 0;
       case 'slide2': return 3;
       case 'slide3': return 3;
       case 'slide4': return 2;
@@ -262,6 +266,7 @@ function renderSlide(index: number, step: number) {
   switch (SLIDES[index]) {
     case 'slideIntroLogo': return <SlideIntroLogo step={step} />;
     case 'hero': return <SlideHero step={step} />;
+    case 'slideConcept': return <SlideConcept step={step} />;
     case 'slide2': return <SlideProblem step={step} />;
     case 'slide3': return <SlideBuild step={step} />;
     case 'slide4': return <SlideSectors step={step} />;
@@ -353,6 +358,119 @@ const SlideHero = ({ step }: { step: number }) => {
     </div>
   );
 };
+
+const ConceptCard = ({
+  icon: Icon,
+  valueAr,
+  valueEn,
+  descAr,
+  descEn,
+  delay = 0,
+}: {
+  icon: typeof Clock;
+  valueAr: string;
+  valueEn: string;
+  descAr: string;
+  descEn: string;
+  delay?: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay, duration: 0.45 }}
+    className="flex-1 min-w-0 bg-white rounded-2xl lg:rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/40 p-6 lg:p-10 flex flex-col items-center text-center gap-4 lg:gap-6"
+  >
+    <motion.div
+      initial={{ scale: 0.85, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay: delay + 0.1, duration: 0.35 }}
+      className="w-14 h-14 lg:w-20 lg:h-20 rounded-xl lg:rounded-2xl bg-[#dbeafe] flex items-center justify-center text-brand-blue"
+    >
+      <Icon size={28} className="lg:w-9 lg:h-9" strokeWidth={2.25} />
+    </motion.div>
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: delay + 0.15, duration: 0.4 }}
+      className="space-y-1 lg:space-y-2"
+    >
+      <p className="text-3xl lg:text-5xl font-black text-brand-blue leading-tight">{valueAr}</p>
+      <p className="text-xs lg:text-sm font-bold text-slate-400 tracking-[0.2em]">{valueEn}</p>
+    </motion.div>
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: delay + 0.2, duration: 0.4 }}
+      className="space-y-2 lg:space-y-3 mt-auto"
+    >
+      <p className="text-lg lg:text-2xl font-black text-brand-blue leading-snug">{descAr}</p>
+      <p className="text-[10px] lg:text-xs font-black text-brand-orange tracking-[0.25em] uppercase">
+        {descEn}
+      </p>
+    </motion.div>
+  </motion.div>
+);
+
+const SlideConcept = ({ step: _step }: { step: number }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    className="presentation-slide flex flex-col items-center justify-center gap-8 lg:gap-12"
+  >
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="text-center space-y-2 lg:space-y-3"
+    >
+      <h2 className="text-3xl md:text-4xl lg:text-6xl font-black text-brand-blue leading-tight">
+        {CONTENT.slideConcept.title}
+      </h2>
+      <p className="text-sm lg:text-lg font-black text-brand-blue tracking-[0.35em] uppercase">
+        {CONTENT.slideConcept.subtitle}
+      </p>
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ delay: 0.2, duration: 0.35 }}
+        className="w-16 lg:w-24 h-1.5 bg-brand-blue rounded-full mx-auto origin-center"
+      />
+    </motion.div>
+
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.1, duration: 0.4 }}
+      className="w-full max-w-5xl flex flex-row items-center justify-center gap-3 lg:gap-5 px-2"
+    >
+      <ConceptCard
+        icon={Calendar}
+        valueAr={CONTENT.slideConcept.days.valueAr}
+        valueEn={CONTENT.slideConcept.days.valueEn}
+        descAr={CONTENT.slideConcept.days.descAr}
+        descEn={CONTENT.slideConcept.days.descEn}
+        delay={0.35}
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.25, duration: 0.35 }}
+        className="shrink-0 w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-[#dbeafe] flex items-center justify-center text-brand-blue shadow-md"
+        aria-hidden
+      >
+        <ArrowLeft size={20} className="lg:w-7 lg:h-7" strokeWidth={2.5} />
+      </motion.div>
+      <ConceptCard
+        icon={Clock}
+        valueAr={CONTENT.slideConcept.minutes.valueAr}
+        valueEn={CONTENT.slideConcept.minutes.valueEn}
+        descAr={CONTENT.slideConcept.minutes.descAr}
+        descEn={CONTENT.slideConcept.minutes.descEn}
+        delay={0.15}
+      />
+    </motion.div>
+  </motion.div>
+);
 
 const SlideProblem = ({ step }: { step: number }) => (
   <div className="presentation-slide space-y-6 lg:space-y-10">
