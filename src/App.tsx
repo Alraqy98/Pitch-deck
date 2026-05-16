@@ -858,29 +858,14 @@ const SlidePhaseOne = ({ step }: { step: number }) => {
            <span className="text-lg lg:text-3xl font-black uppercase tracking-[0.1em] text-brand-blue leading-tight whitespace-nowrap">{CONTENT.slide5.intro}</span>
          </div>
       </div>
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
-      <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-        {CONTENT.slide5.tracks.map((track, i) => (
-          <motion.div 
-            key={i}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={step >= 1 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-            transition={{ delay: i * 0.1 }}
-            className="p-4 lg:p-6 rounded-[1.5rem] lg:rounded-[2rem] bg-white border border-slate-100 shadow-md group hover:border-brand-blue/40 transition-all relative overflow-hidden flex flex-col hover:-translate-y-1"
-          >
-             <div className="absolute right-0 top-0 w-1 lg:w-1.5 h-full bg-slate-100 group-hover:bg-brand-blue transition-all"></div>
-             <h4 className="text-base lg:text-lg font-black text-brand-blue mb-1 lg:mb-2 italic leading-tight">{track.name}</h4>
-             <p className="text-xs lg:text-sm text-slate-500 font-medium italic leading-relaxed">{track.desc}</p>
-          </motion.div>
-        ))}
-      </div>
-      <div className="lg:col-span-4 space-y-2 lg:space-y-3">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-stretch">
+      <motion.div className="lg:col-span-4 space-y-2 lg:space-y-3">
         {CONTENT.slide5.items.map((item, i) => (
           <motion.div 
             key={i}
-            initial={{ opacity: 0, x: -20 }}
-            animate={step >= 2 ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            transition={{ delay: 0.5 + i * 0.1 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={step >= 1 ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+            transition={{ delay: i * 0.1 }}
             className="p-3 lg:p-4 bg-white border border-slate-100 rounded-xl lg:rounded-2xl flex items-center justify-between group hover:border-brand-orange hover:shadow-lg transition-all"
           >
              <div className="flex flex-col text-right">
@@ -890,24 +875,37 @@ const SlidePhaseOne = ({ step }: { step: number }) => {
              <ArrowLeft size={14} className="text-slate-200 group-hover:text-brand-orange group-hover:-translate-x-2 transition-all shrink-0" />
           </motion.div>
         ))}
-        {step >= 3 && (
+      </motion.div>
+      <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
+        {CONTENT.slide5.tracks.map((track, i) => (
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="pt-2"
+            key={i}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={step >= 2 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            transition={{ delay: 0.3 + i * 0.1 }}
+            className="p-4 lg:p-6 rounded-[1.5rem] lg:rounded-[2rem] bg-white border border-slate-100 shadow-md group hover:border-brand-blue/40 transition-all relative overflow-hidden flex flex-col hover:-translate-y-1"
           >
-            <a 
-              href="https://rai-assessment.vercel.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-4 lg:p-6 bg-brand-blue hover:bg-brand-orange text-white font-black italic text-center rounded-[2rem] shadow-xl transition-all flex items-center justify-center gap-4 group border-3 border-white/20 hover:scale-105 active:scale-95"
-            >
-              <span className="text-lg lg:text-2xl">ابدأ التقييم الآن</span>
-              <Globe size={28} className="group-hover:rotate-12 transition-transform" />
-            </a>
+             <div className="absolute right-0 top-0 w-1 lg:w-1.5 h-full bg-slate-100 group-hover:bg-brand-blue transition-all"></div>
+             <h4 className="text-base lg:text-lg font-black text-brand-blue mb-1 lg:mb-2 italic leading-tight">{track.name}</h4>
+             <p className="text-xs lg:text-sm text-slate-500 font-medium italic leading-relaxed">{track.desc}</p>
           </motion.div>
-        )}
+        ))}
       </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={step >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        className="lg:col-span-2 flex items-center"
+      >
+        <a 
+          href="https://rai-assessment.vercel.app/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-full p-4 lg:p-5 bg-brand-blue hover:bg-brand-orange text-white font-black italic text-center rounded-[1.5rem] lg:rounded-[2rem] shadow-xl transition-all flex flex-col items-center justify-center gap-3 lg:gap-4 group border-3 border-white/20 hover:scale-105 active:scale-95 min-h-[120px] lg:min-h-0 lg:h-full"
+        >
+          <span className="text-base lg:text-xl leading-snug">ابدأ التقييم الآن</span>
+          <Globe size={24} className="lg:w-7 lg:h-7 group-hover:rotate-12 transition-transform shrink-0" />
+        </a>
+      </motion.div>
     </div>
   </div>
 );
