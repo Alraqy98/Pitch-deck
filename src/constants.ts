@@ -156,7 +156,7 @@ export const CONTENT = {
     intro: "ينقسم التشخيص المعمق إلى مسارين رئيسيين:",
     path1: {
       name: "أولاً — التحليل النوعي (Qualitative Assessment)",
-      method: "منهجية الحوكمة التشغيلية بمنهجية الاضلاع الاربعة",
+      method: "جاهزية الحوكمة التشغيلية بمنهجية الاضلاع الاربعة (Operational Governance Readiness™ — Four Pillars Methodology™)",
       items: [
         { name: "1. الهيكل التنظيمي", eng: "(Organizational Structure)" },
         { name: "2. مصفوفة الصلاحيات", eng: "(Authority Matrix / DOA)" },
