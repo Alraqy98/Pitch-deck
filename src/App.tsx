@@ -198,7 +198,7 @@ export default function App() {
             <div className="w-24 h-24 lg:w-40 lg:h-40 bg-white rounded-2xl lg:rounded-[3rem] shadow-2xl border border-slate-100 flex items-center justify-center overflow-hidden p-2 lg:p-4">
                <img 
                 src="/logo.png" 
-                alt="نقطة تحول | 90x90 Logo" 
+                alt="Roqqi Logo"
                 className="w-full h-full object-contain"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
@@ -1457,7 +1457,7 @@ const SlideThanks = ({ step }: { step: number }) => {
             <div className="w-40 h-40 lg:w-72 lg:h-72 bg-white rounded-[2.5rem] lg:rounded-[4rem] shadow-2xl border border-slate-100 flex items-center justify-center overflow-hidden p-6 lg:p-12 hover:scale-105 transition-transform group">
               <img 
                 src="/logo.png" 
-                alt="نقطة تحول | 90x90 Logo" 
+                alt="Roqqi Logo" 
                 className="w-full h-full object-contain group-hover:rotate-3 transition-transform"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
