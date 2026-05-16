@@ -5,7 +5,7 @@
 
 export const CONTENT = {
   hero: {
-    title: "90x90 | نقطة تحول",
+    title: "نقطة تحول | 90x90",
     tagline: "بين الإمكانات ... والنتائج",
     description: "برنامج تنفيذي لتفعيل الأداء والنمو Execution-Led Business Activation Framework",
     consultant: "م. رائد أبوعيسى",
@@ -13,7 +13,7 @@ export const CONTENT = {
     subrole: "Operational Governance and Business Growth Consultant"
   },
   slideConcept: {
-    title: "فكرة البرنامج نقطة تحوّل 90x90",
+    title: "فكرة البرنامج نقطة تحوّل | 90x90",
     subtitle: "THE CONCEPT",
     minutes: {
       valueAr: "٩٠ دقيقة",
@@ -47,7 +47,7 @@ export const CONTENT = {
     ]
   },
   slide3: {
-    title: "كيف تم بناء 90×90 | نقطة تحول؟",
+    title: "كيف تم بناء نقطة تحول | 90×90؟",
     buildMethod: "تم بناء البرنامج من خلال:",
     items: [
       "خبرات داخل شركات عالمية",
@@ -64,7 +64,7 @@ export const CONTENT = {
   },
   slide4: {
     title: "القطاعات التي يخدمها البرنامج",
-    intro: "تم تصميم 90×90 | نقطة تحول ليكون قابلاً للتطبيق على:",
+    intro: "تم تصميم نقطة تحول | 90×90 ليكون قابلاً للتطبيق على:",
     sectors: [
       { name: "القطاع الصناعي", eng: "(Manufacturing)" },
       { name: "القطاع التجاري", eng: "(Trading & Distribution)" },
@@ -228,7 +228,7 @@ export const CONTENT = {
   },
   slide11: {
     title: "الخلاصة (Final Message)",
-    tagline: "90x90 | نقطة تحول",
+    tagline: "نقطة تحول | 90x90",
     statement: "ليس تقريراً... بل تنفيذ",
     pillars: [
       {

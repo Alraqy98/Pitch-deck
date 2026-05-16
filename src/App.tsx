@@ -444,12 +444,12 @@ const SlideConcept = ({ step: _step }: { step: number }) => (
       className="w-full max-w-5xl flex flex-row items-center justify-center gap-3 lg:gap-5 px-2"
     >
       <ConceptCard
-        icon={Calendar}
-        valueAr={CONTENT.slideConcept.days.valueAr}
-        valueEn={CONTENT.slideConcept.days.valueEn}
-        descAr={CONTENT.slideConcept.days.descAr}
-        descEn={CONTENT.slideConcept.days.descEn}
-        delay={0.35}
+        icon={Clock}
+        valueAr={CONTENT.slideConcept.minutes.valueAr}
+        valueEn={CONTENT.slideConcept.minutes.valueEn}
+        descAr={CONTENT.slideConcept.minutes.descAr}
+        descEn={CONTENT.slideConcept.minutes.descEn}
+        delay={0.15}
       />
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
@@ -461,12 +461,12 @@ const SlideConcept = ({ step: _step }: { step: number }) => (
         <ArrowLeft size={20} className="lg:w-7 lg:h-7" strokeWidth={2.5} />
       </motion.div>
       <ConceptCard
-        icon={Clock}
-        valueAr={CONTENT.slideConcept.minutes.valueAr}
-        valueEn={CONTENT.slideConcept.minutes.valueEn}
-        descAr={CONTENT.slideConcept.minutes.descAr}
-        descEn={CONTENT.slideConcept.minutes.descEn}
-        delay={0.15}
+        icon={Calendar}
+        valueAr={CONTENT.slideConcept.days.valueAr}
+        valueEn={CONTENT.slideConcept.days.valueEn}
+        descAr={CONTENT.slideConcept.days.descAr}
+        descEn={CONTENT.slideConcept.days.descEn}
+        delay={0.35}
       />
     </motion.div>
   </motion.div>
